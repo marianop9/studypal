@@ -25,8 +25,6 @@
 	<main class="space-y-4 p-4">
 		{@render children()}
 
-		<p class="h-[512px] bg-purple-500 p-4">Paragraph 2</p>
-		<p class="h-[512px] bg-purple-500 p-4">Paragraph 3</p>
 	</main>
 	<!-- Footer -->
 	<footer class="bg-blue-500 p-4">(footer)</footer>

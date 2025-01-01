@@ -1,4 +1,5 @@
 import PocketBase, { ClientResponseError } from 'pocketbase';
+import type { SubjectModel } from './models/subjects.model';
 
 const pb = new PocketBase('http://localhost:8090');
 
@@ -35,7 +36,12 @@ class PbClient {
 	logout() {
 		this.#internal.authStore.clear();
 	}
+
+    get subjects() {
+        return this.#internal.collection<SubjectModel>('subjects')
+    }
 }
 
 const pbClient = new PbClient(pb);
 export default pbClient;
+

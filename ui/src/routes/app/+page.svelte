@@ -1,13 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-<aside class="alert variant-filled-secondary">
-    <!-- Icon -->
-    <div>(icon)</div>
-    <!-- Message -->
-    <div class="alert-message">
-        <h3 class="h3">(title)</h3>
-        <p>the message</p>
-    </div>
-    <!-- Actions -->
-    <div class="alert-actions">(buttons)</div>
-</aside>
+<script lang="ts">
+	let { data } = $props();
+</script>
+
+<h3 class="h3">My Subjects</h3>
+{#await data.subjects}
+	<p>loading...</p>
+{:then subjects}
+	<ul>
+		{#each subjects as subj}
+			<li>{subj.name} - {subj.year}</li>
+		{/each}
+	</ul>
+{/await}
